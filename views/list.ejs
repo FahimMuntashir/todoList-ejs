@@ -6,10 +6,18 @@
 </head>
 <body>
 
-  <%  if(kindofDay==='Saturday' || kindofDay==='Sunday'){ %>
-    <h1 style="color: yellow;">It's a <%= kindofDay %> ! todo List</h1>
-<% }else{ %>
-    <h1 style="color: brown;">It's a <%=kindofDay %></h1>
-<% } %>
+<h1><%= kindofDay %></h1>
+
+<ul>
+    <li>buy food</li>
+    <li>Cook food</li>
+    <li>eat food</li>
+    <li><%= newListItem %></li>
+
+    <form action="/" method="POST">
+        <input name="newItem" type="text">
+        <button name="button" type="submit">Add</button>
+    </form>
+</ul>
 </body>
 </html>
