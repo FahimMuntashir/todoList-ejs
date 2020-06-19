@@ -11,6 +11,8 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static("public"));
+
 app.get('/', function (req, res) {
 
     let today = new Date();
@@ -24,7 +26,7 @@ app.get('/', function (req, res) {
     let day = today.toLocaleDateString('en-US', options);
 
 
-    res.render("list", { kindofDay: day, newListItems: items });
+    res.render("list", { listTitle: day, newListItems: items });
 
 });
 
@@ -37,6 +39,10 @@ app.post('/', function (req, res) {
 
 });
 
+
+app.get('/work', function(req,res){
+    res.render('list', {listTitle: 'work list', newListItems:workItem})
+})
 
 
 

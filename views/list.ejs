@@ -1,24 +1,41 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><Textarea>Todo List</Textarea></title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-<h1><%= kindofDay %></h1>
+    <div class="box" id="heading">
+        <h1><%= listTitle %></h1>
 
-<ul>
+    </div>
 
+    <div class="box">
+        <% for(var i=0; i<newListItems.length;i++){ %>
 
-   <% for(var i=0; i<newListItems.length;i++){ %>
-        <li><%= newListItems[i] %></li>
-   <% } %>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= newListItems[i] %></p>
+        </div>
+
+        <% } %>
+
 
     <form action="/" method="POST">
-        <input name="newItem" type="text">
-        <button name="button" type="submit">Add</button>
+        <input name="newItem" type="text" placeholder="New Item" autocomplete="off">
+        <button name="button" type="submit">+</button>
     </form>
-</ul>
+
+
+    </div>
+
+
+
+
 </body>
+
 </html>
